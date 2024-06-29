@@ -1,5 +1,6 @@
 import cv2
-vid=cv2.VideoCapture("video/example.mp4")
+# vid=cv2.VideoCapture("video/example.mp4")
+vid=cv2.VideoCapture(0)
 while True:
     nongarHub,img=vid.read()
     cv2.imshow("Video",img)
