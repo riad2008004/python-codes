@@ -1,0 +1,15 @@
+s="My Name is ARIFUL ISLAM RIAD"
+length = len(s)
+print(length)
+print(s[0])
+print(s.find("RIAD"))
+new_s=s.replace("is","Is")
+print(s)
+print(new_s)
+s2= "  Hellow  "
+new_s2=s2.strip()
+print(new_s2)
+s2_up=s2.upper()
+s2_low=s2.lower()
+s2_cap=s2.capitalize()
+print(s2_up,s2_low,s2_cap)

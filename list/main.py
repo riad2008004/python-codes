@@ -1,0 +1,12 @@
+saarc=["Bangladesh","Pakistan","India","Australia","Nepal"]
+print(saarc)
+saarc.append("Afganistan")
+print(saarc)
+saarc.sort()
+print(saarc)
+saarc.reverse()
+print(saarc)
+saarc.insert(1,"Brazil")
+print(saarc)
+saarc.remove("Nepal")
+print(saarc)
