@@ -12,7 +12,7 @@ for i in range(10):
     pyplot.imshow(image_list[i],'gray')   # to show image
     pyplot.title(i+1)   # image title
     pyplot.axis(False)  # to off axis
-
+    
 print(len(image_list))    
 pyplot.show()    # to show plotted data 
     
