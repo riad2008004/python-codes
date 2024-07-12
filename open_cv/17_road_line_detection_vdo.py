@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-from matplotlib import pyplot
+# from matplotlib import pyplot
 
 def drow_the_lines(img, lines):
     img = np.copy(img)
