@@ -8,4 +8,4 @@ for (x,y,w,h) in faces:
     cv2.rectangle(image,(x,y),(x+w,y+h),(255,0,0),3)
 
 cv2.imshow("Image",image)
-cv2.waitKey(0)
+cv2.waitKey()

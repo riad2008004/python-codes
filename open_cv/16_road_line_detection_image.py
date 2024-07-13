@@ -2,15 +2,6 @@ import numpy as np
 import cv2
 from matplotlib import pyplot
 
-image = cv2.imread("images/car_lane.png")
-image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
-height=image.shape[0]
-width=image.shape[1]
-n_width=width-170
-n_height=height-100
-
-region_of_interest_vertics=[(0,height),(0,n_height),(width/2,height/2),(n_width,height)]
-
 def drow_the_lines(img, lines):
     img = np.copy(img)
     blank_image = np.zeros((img.shape[0], img.shape[1], 3), dtype=np.uint8)
@@ -33,6 +24,16 @@ def region_of_interest(img,vertics):
     cv2.fillPoly(mask,vertics,match_mask_color)
     masked_image=cv2.bitwise_and(img,mask)
     return masked_image
+
+image = cv2.imread("images/car_lane.png")
+image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
+
+height=image.shape[0]
+width=image.shape[1]
+n_width=width-170
+n_height=height-100
+
+region_of_interest_vertics=[(0,height),(0,n_height),(width/2,height/2),(n_width,height)]
 
 gray_image=cv2.cvtColor(image,cv2.COLOR_RGB2GRAY)   
 canny_image=cv2.Canny(gray_image,100,200) 
