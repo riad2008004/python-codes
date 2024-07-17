@@ -10,7 +10,5 @@ level_1.pack()
 button_1=tk.Button(window,text="Submit",bg='white',fg='green',relief='ridge',font=("arial",16,'bold'))
 button_1.place(x=330,y=600)
 
-
-
 window.mainloop()
 
