@@ -4,6 +4,10 @@ window=tk.Tk()
 window.title("Form")
 window.geometry("450x650")
 
+fn=tk.StringVar()
+ln=tk.StringVar()
+dob=tk.StringVar()
+
 def exit_00():
     exit()
 
@@ -17,6 +21,13 @@ label4=tk.Label(window,text="Date of Birth : ",width=20,font=("arial",12))
 label4.place(x=18,y=180)
 label5=tk.Label(window,text="Country : ",width=20,font=("arial",12))
 label5.place(x=2,y=220)
+
+entry1=tk.Entry(window,textvar=fn)
+entry1.place(x=200,y=105)
+entry2=tk.Entry(window,textvar=ln)
+entry2.place(x=200,y=145)
+entry3=tk.Entry(window,textvar=dob)
+entry3.place(x=200,y=185)
 
 button_1=tk.Button(window,text="Log In",width=10,bg='brown',fg='white',relief='ridge',font=("arial",12,'bold'))
 button_1.place(x=110,y=600)
