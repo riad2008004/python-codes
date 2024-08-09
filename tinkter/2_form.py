@@ -6,6 +6,13 @@ window=tk.Tk()
 window.title("Form")
 window.geometry("450x650")
 
+image_src="D:/Codes/python_codes/images/registration-icon-png-9.jpg"
+image=Image.open(image_src)
+image = image.resize((150, 110))
+photo=ImageTk.PhotoImage(image)
+lab_p=tk.Label(image=photo)
+lab_p.place(x=155,y=6)
+
 # fn=tk.StringVar() # a way of express string var at that case not need to import string var
 # ln=tk.StringVar()
 # dob=tk.StringVar()
@@ -28,8 +35,8 @@ def print_info():
 def exit_00():
     exit()
 
-label1=tk.Label(window,text="Registration Form",relief="solid",width=20,font=("arial",19,"bold"))
-label1.place(x=70,y=150)
+label1=tk.Label(window,text="Registration Form",relief="solid",width=20,font=("arial",17,"bold"))
+label1.place(x=81,y=154)
 label2=tk.Label(window,text="First Name : ",width=20,font=("arial",12))
 label2.place(x=14,y=240)
 label3=tk.Label(window,text="Last Name : ",width=20,font=("arial",12))
@@ -68,7 +75,7 @@ c2.place(x=266,y=450)
 c3=tk.Checkbutton(window,variable=hin,text="Hindi")
 c3.place(x=194,y=475)
 
-button_1=tk.Button(window,text="Log In",width=10,bg='brown',fg='white',relief='ridge',font=("arial",12,'bold'),command=print_info)
+button_1=tk.Button(window,text="Submit",width=10,bg='brown',fg='white',relief='ridge',font=("arial",12,'bold'),command=print_info)
 button_1.place(x=110,y=580)
 button_2=tk.Button(window,text="Exit",width=10,bg='brown',fg='white',relief='ridge',font=("arial",12,'bold'),command=exit_00)
 button_2.place(x=230,y=580)
