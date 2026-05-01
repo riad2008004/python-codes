@@ -1,25 +1,34 @@
-class car:
-    
-    # name=""
-    # reg_number=""
-    
-    def __init__(self,n,r):   #need to remove this function if mycar=car() Non parameterized object created
-        self.name=n
-        self.reg_number=r
-    
-    def start(self):
-        print("The Car is starting")
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
 
-# mycar=car()
-# mycar.name="Premio"
-# mycar.reg_number="10240520"
+image = cv2.imread('cat.jpg', cv2.IMREAD_GRAYSCALE)
+if image is None:
+    raise FileNotFoundError("Image not found!")
 
-# print(mycar.name)
-# print(mycar.reg_number)
-# mycar.start()  
+cv2.imshow("Original Image", image)
+cv2.waitKey(0)
 
-anothercar=car("Corolla","10541")
-print(anothercar.name)
-print(anothercar.reg_number)
-      
-    
+plt.hist(image.ravel(), 256, [0, 256])
+plt.title("Histogram")
+plt.show()
+
+_, thresh1 = cv2.threshold(image, 127, 255, cv2.THRESH_BINARY)
+_, thresh2 = cv2.threshold(image, 127, 255, cv2.THRESH_BINARY_INV)
+thresh3 = cv2.adaptiveThreshold(image, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 11, 2)
+thresh4 = cv2.adaptiveThreshold(image, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 11, 2)
+_, thresh5 = cv2.threshold(image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+
+titles = ['Original', 'Binary', 'Binary Inv', 'Adaptive Mean', 'Adaptive Gaussian', 'Otsu']
+images = [image, thresh1, thresh2, thresh3, thresh4, thresh5]
+
+plt.figure(figsize=(10, 8))
+for i in range(6):
+    plt.subplot(2, 3, i + 1)
+    plt.imshow(images[i], cmap='gray')
+    plt.title(titles[i])
+    plt.axis('off')
+plt.tight_layout()
+plt.show()
+
+cv2.destroyAllWindows()
